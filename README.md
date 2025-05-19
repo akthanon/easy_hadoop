@@ -1,4 +1,4 @@
-# easy_hadoop
+# Easy Hadoop 🚧 (Under Construction) 🚧
 
 easy_hadoop is a collection of scripts designed to simplify the setup and use of Apache Hadoop in three different modes:
 
@@ -50,7 +50,7 @@ pseudo-distributed/ — For simulating a cluster on a single machine
 
 distributed/ — For running Hadoop across multiple machines
 
-3. Run setup script
+3. Run setup script 🚧🚧🚧
 
 ```bash
 sudo apt install default-jdk
@@ -92,13 +92,13 @@ mv hadoop-3.4.1 ~/hadoop
 
 ## 📄 License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under 🚧🚧🚧. See the LICENSE file for details.
 
-## 🙌 Contributing
+## 🙌 Contributing 🚧🚧🚧
 
 Feel free to submit pull requests, report issues, or suggest improvements.
 
-## 📢 Contact
+## 📢 Contact 
 
 For questions, suggestions, or collaboration, reach out via GitHub Issues or fork the project.
 
