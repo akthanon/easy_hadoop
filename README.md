@@ -1,6 +1,6 @@
 # easy_hadoop
 
-easy_hadoop is a collection of shell scripts designed to simplify the setup and use of Apache Hadoop in three different modes:
+easy_hadoop is a collection of scripts designed to simplify the setup and use of Apache Hadoop in three different modes:
 
 Standalone
 
@@ -14,7 +14,9 @@ These scripts aim to save time and reduce configuration errors when working with
 
 easy_hadoop/
 ├── standalone/         # Scripts for running Hadoop in standalone mode (local)
+
 ├── pseudo-distributed/ # Scripts for pseudo-distributed setup (single-node)
+
 └── distributed/        # Scripts for fully distributed multi-node setup
 
 ## ⚙️ Requirements
@@ -59,23 +61,30 @@ Please read the README.md inside each subdirectory for more specific instruction
 
 ## 📚 Modes Explained
 
-Standalone Mode
+| Usage Mode                  | Common Name                  | Number of Computers    |
 
-Hadoop runs as a single Java process.
+| --------------------------- | ---------------------------- | ---------------------- |
 
-Useful for development and small file testing.
+| On a single computer        | Local Mode / Standalone Mode | 1                      |
 
-Pseudo-distributed Mode
+| Simulated on one computer   | Pseudo-distributed Mode      | 1                      |
 
-Hadoop daemons run on a single node but in separate JVMs.
+| On multiple computers       | Fully Distributed Mode       | 2 or more              |
 
-Simulates a full cluster on one machine.
+| In the cloud                | Cloud-based Hadoop / HaaS    | Variable               |
 
-Distributed Mode
+## 🔁 General Recommendations  
 
-Hadoop runs across multiple physical or virtual machines.
+🐧 Always use Linux (better experience than Windows).  
 
-Requires SSH key-based login between nodes and hostname configuration.
+💻 If you don’t have multiple machines, use VirtualBox or VMware to simulate the cluster.  
+
+🧠 Learn HDFS and MapReduce thoroughly before moving on to Hive or Spark.  
+
+📊 Use real datasets to practice: network logs, forensic records, large CSV files, etc.  
+
+📘 Take configuration notes: they’ll be useful in production or if you plan to teach.
+
 
 ## 📄 License
 
