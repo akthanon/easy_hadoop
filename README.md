@@ -50,15 +50,17 @@ distributed/ — For running Hadoop across multiple machines
 
 3. Run setup script
 
-Each folder contains scripts with self-explanatory names, such as:
+```bash
+sudo apt install default-jdk
+java -version
+sudo apt-get install ssh
+sudo apt-get install pdsh
 
-./install.sh          # Install dependencies
-./configure.sh        # Set up Hadoop configuration files
-./start_hadoop.sh     # Format HDFS and start daemons
-./stop_hadoop.sh      # Stop Hadoop daemons
+wget https://dlcdn.apache.org/hadoop/common/hadoop-3.4.1/hadoop-3.4.1.tar.gz
+tar -xzvf hadoop-3.4.1.tar.gz
+mv hadoop-3.4.1 ~/hadoop
 
-Please read the README.md inside each subdirectory for more specific instructions.
-
+```
 ## 📚 Modes Explained
 
 | Usage Mode                  | Common Name                  | Number of Computers    |
