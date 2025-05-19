@@ -1,4 +1,4 @@
-easy_hadoop
+# easy_hadoop
 
 easy_hadoop is a collection of shell scripts designed to simplify the setup and use of Apache Hadoop in three different modes:
 
@@ -10,14 +10,14 @@ Fully distributed
 
 These scripts aim to save time and reduce configuration errors when working with Hadoop, whether you're experimenting locally or deploying across multiple machines.
 
-📁 Directory Structure
+## 📁 Directory Structure
 
 easy_hadoop/
 ├── standalone/         # Scripts for running Hadoop in standalone mode (local)
 ├── pseudo-distributed/ # Scripts for pseudo-distributed setup (single-node)
 └── distributed/        # Scripts for fully distributed multi-node setup
 
-⚙️ Requirements
+## ⚙️ Requirements
 
 Bash shell
 
@@ -29,7 +29,7 @@ Apache Hadoop (2.x or 3.x)
 
 Root or sudo privileges (for some configurations)
 
-🚀 Quick Start
+## 🚀 Quick Start
 
 1. Clone this repository
 
@@ -57,7 +57,7 @@ Each folder contains scripts with self-explanatory names, such as:
 
 Please read the README.md inside each subdirectory for more specific instructions.
 
-📚 Modes Explained
+## 📚 Modes Explained
 
 Standalone Mode
 
@@ -77,15 +77,15 @@ Hadoop runs across multiple physical or virtual machines.
 
 Requires SSH key-based login between nodes and hostname configuration.
 
-📄 License
+## 📄 License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-🙌 Contributing
+## 🙌 Contributing
 
 Feel free to submit pull requests, report issues, or suggest improvements.
 
-📢 Contact
+## 📢 Contact
 
 For questions, suggestions, or collaboration, reach out via GitHub Issues or fork the project.
 
