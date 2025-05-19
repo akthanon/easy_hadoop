@@ -13,6 +13,7 @@ These scripts aim to save time and reduce configuration errors when working with
 ## 📁 Directory Structure
 
 easy_hadoop/
+
 ├── standalone/         # Scripts for running Hadoop in standalone mode (local)
 
 ├── pseudo-distributed/ # Scripts for pseudo-distributed setup (single-node)
@@ -36,6 +37,7 @@ Root or sudo privileges (for some configurations)
 1. Clone this repository
 
 git clone https://github.com/yourusername/easy_hadoop.git
+
 cd easy_hadoop
 
 2. Choose a mode
@@ -62,7 +64,7 @@ mv hadoop-3.4.1 ~/hadoop
 
 ```
 ## 📚 Modes Explained
-
+```bash
 | Usage Mode                  | Common Name                  | Number of Computers    |
 
 | --------------------------- | ---------------------------- | ---------------------- |
@@ -74,7 +76,7 @@ mv hadoop-3.4.1 ~/hadoop
 | On multiple computers       | Fully Distributed Mode       | 2 or more              |
 
 | In the cloud                | Cloud-based Hadoop / HaaS    | Variable               |
-
+```
 ## 🔁 General Recommendations  
 
 🐧 Always use Linux (better experience than Windows).  
