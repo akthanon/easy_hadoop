@@ -53,6 +53,7 @@ distributed/ — For running Hadoop across multiple machines
 3. Run setup script 🚧🚧🚧
 
 ```bash
+cd ~
 git clone https://github.com/akthanon/easy_hadoop
 sudo apt install default-jdk -y
 sudo apt-get install ssh -y
@@ -62,38 +63,13 @@ wget https://dlcdn.apache.org/hadoop/common/hadoop-3.4.1/hadoop-3.4.1.tar.gz
 tar -xzvf hadoop-3.4.1.tar.gz
 mv hadoop-3.4.1 ~/hadoop
 
-chmod +x conf_hadoop.sh
-chmod +x test_hadoop_gutenberg.sh
-./conf_hadoop.sh
-./test_hadoop_gutenberg.sh
+chmod +x ~/easy_hadoop/standalone/conf_hadoop.sh
+chmod +x ~/easy_hadoop/standalone/test_hadoop_gutenberg.sh
+chmod +x ~/easy_hadoop/standalone/run_wordcount.sh
+~/easy_hadoop/standalone/conf_hadoop.sh
+~/easy_hadoop/standalone/test_hadoop_gutenberg.sh
+~/easy_hadoop/standalone/run_wordcount.sh
 
-```
-```bash
-#Instalar librerias para graficar
-sudo apt install python3-pip -y
-
-# 1. Crear un entorno virtual
-python3 -m venv ~/venv_hadoop
-
-# 2. Activarlo
-source ~/venv_hadoop/bin/activate
-
-# 3. Instalar paquetes dentro del entorno
-pip install matplotlib pandas
-
-# 4. Ejecutar el script Python como siempre
-python ~/graph_wordcount.py
-
-# 5. Salir
-deactivate
-```
-```bash
-#Opcional ejecutar script
-#*************************************************************************************************#
-source ~/venv_hadoop/bin/activate
-python ~/graf_wordcount.py
-deactivate
-```
 ## 📚 Modes Explained
 ```bash
 | Usage Mode                  | Common Name                  | Number of Computers    |
