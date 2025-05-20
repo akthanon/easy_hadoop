@@ -67,11 +67,16 @@ chmod +x ~/easy_hadoop/standalone/conf_hadoop.sh
 chmod +x ~/easy_hadoop/standalone/test_hadoop_gutenberg.sh
 chmod +x ~/easy_hadoop/standalone/run_wordcount.sh
 ~/easy_hadoop/standalone/conf_hadoop.sh
+source ~/.bashrc
 ~/easy_hadoop/standalone/test_hadoop_gutenberg.sh
 ~/easy_hadoop/standalone/run_wordcount.sh
 ```
 4. Run setup script Pseudo-Distribuited 🚧🚧🚧
 ```bash
+echo 'export JAVA_HOME=$(readlink -f $(which javac) | awk -F"/bin/" '"'"'{print $1}'"'"')' >> $HADOOP_HOME/etc/hadoop/hadoop-env.sh
+chmod +x ~/easy_hadoop/distribuited/conf_pseudo.sh 
+~/easy_hadoop/distribuited/conf_pseudo.sh 
+
 sudo apt install openssh-server openssh-client -y
 sudo adduser hdoop
 su - hdoop
@@ -80,8 +85,26 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
 ssh localhost
 
+cd ~
+wget https://dlcdn.apache.org/hadoop/common/hadoop-3.4.1/hadoop-3.4.1.tar.gz
+tar -xzvf hadoop-3.4.1.tar.gz
+mv hadoop-3.4.1 ~/hadoop
+git clone https://github.com/akthanon/easy_hadoop
+
+chmod +x ~/easy_hadoop/standalone/conf_hadoop.sh
+~/easy_hadoop/standalone/conf_hadoop.sh
 source ~/.bashrc
-echo 'export JAVA_HOME=$(readlink -f $(which javac) | awk -F"/bin/" '"'"'{print $1}'"'"')' >> $HADOOP_HOME/etc/hadoop/hadoop-env.sh
+chmod +x ~/easy_hadoop/pseudo-distribuited/conf_pseudo.sh 
+~/easy_hadoop/pseudo-distribuited/conf_pseudo.sh 
+
+hdfs namenode -format
+cd hadoop/sbin
+./start-dfs.sh
+./start-yarn.sh
+jps
+http://localhost:9870
+http://localhost:9864
+http://localhost:8088
 ```
 ## 📚 Modes Explained
 
