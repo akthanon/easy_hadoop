@@ -50,7 +50,7 @@ pseudo-distributed/ — For simulating a cluster on a single machine
 
 distributed/ — For running Hadoop across multiple machines
 
-3. Run setup script 🚧🚧🚧
+3. Install and run setup script Standalone
 
 ```bash
 cd ~
@@ -69,6 +69,19 @@ chmod +x ~/easy_hadoop/standalone/run_wordcount.sh
 ~/easy_hadoop/standalone/conf_hadoop.sh
 ~/easy_hadoop/standalone/test_hadoop_gutenberg.sh
 ~/easy_hadoop/standalone/run_wordcount.sh
+```
+4. Run setup script Pseudo-Distribuited 🚧🚧🚧
+```bash
+sudo apt install openssh-server openssh-client -y
+sudo adduser hdoop
+su - hdoop
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
+ssh localhost
+
+source ~/.bashrc
+echo 'export JAVA_HOME=$(readlink -f $(which javac) | awk -F"/bin/" '"'"'{print $1}'"'"')' >> $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 ```
 ## 📚 Modes Explained
 
