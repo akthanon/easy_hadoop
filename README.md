@@ -69,8 +69,9 @@ chmod +x ~/easy_hadoop/standalone/run_wordcount.sh
 ~/easy_hadoop/standalone/conf_hadoop.sh
 ~/easy_hadoop/standalone/test_hadoop_gutenberg.sh
 ~/easy_hadoop/standalone/run_wordcount.sh
-
+```
 ## 📚 Modes Explained
+
 ```bash
 | Usage Mode                  | Common Name                  | Number of Computers    |
 
