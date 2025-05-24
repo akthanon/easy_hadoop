@@ -9,13 +9,13 @@ else
     echo "python3-pip ya está instalado."
 fi
 
-# Verificar si python3.12-venv está instalado
-if ! dpkg -s python3.12-venv &>/dev/null; then
-    echo "Instalando python3.12-venv..."
+# Verificar si python3-venv está instalado
+if ! dpkg -s python3-venv &>/dev/null; then
+    echo "Instalando python3-venv..."
     sudo apt update
-    sudo apt install python3.12-venv -y
+    sudo apt install python3-venv -y
 else
-    echo "python3.12-venv ya está instalado."
+    echo "python3-venv ya está instalado."
 fi
 
 # Crear entorno virtual si no existe
