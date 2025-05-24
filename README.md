@@ -53,6 +53,7 @@ distributed/ — For running Hadoop across multiple machines
 3. Install and run setup script Standalone
 
 ```bash
+sudo apt update && sudo apt upgrade
 cd ~
 git clone https://github.com/akthanon/easy_hadoop
 sudo apt install default-jdk -y
