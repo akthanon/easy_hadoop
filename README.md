@@ -36,10 +36,6 @@ Root or sudo privileges (for some configurations)
 
 1. Clone this repository
 
-git clone https://github.com/yourusername/easy_hadoop.git
-
-cd easy_hadoop
-
 2. Choose a mode
 
 Go into one of the following directories:
