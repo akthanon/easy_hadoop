@@ -33,10 +33,22 @@ BEGIN { chapter=0 }
 CHAPTER_COUNT=$(ls "$CHAPTERS_DIR" | wc -l)
 echo "📝 Se crearon $CHAPTER_COUNT capítulos."
 
-# Paso 3: Activar entorno virtual
-if [ ! -d "$VENV_DIR" ]; then
-    echo "❌ Entorno virtual $VENV_DIR no encontrado. Ejecuta primero run_sentimientos.sh"
-    exit 1
+# Verificar dependencias necesarias
+if ! dpkg -s python3-pip &>/dev/null; then
+    echo "Instalando python3-pip..."
+    sudo apt update
+    sudo apt install python3-pip -y
+fi
+
+if ! dpkg -s python3-venv &>/dev/null; then
+    echo "Instalando python3-venv..."
+    sudo apt update
+    sudo apt install python3-venv -y
+fi
+
+# Crear entorno virtual
+if [ ! -d "$HOME/venv_hadoop" ]; then
+    python3 -m venv "$HOME/venv_hadoop"
 fi
 
 source "$VENV_DIR/bin/activate"
