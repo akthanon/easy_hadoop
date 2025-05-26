@@ -24,6 +24,12 @@ if [ ! -d "$HOME/venv_hadoop" ]; then
     python3 -m venv "$HOME/venv_hadoop"
 fi
 
+# Descargar recursos de NLTK
+python3 -c "
+import nltk
+nltk.download('punkt')
+nltk.download('stopwords')
+"
 
 # Paso 3: Activar entorno virtual
 source "$VENV_DIR/bin/activate"
