@@ -9,6 +9,7 @@ CSV_OUT=~/wordcount_mobydick.csv
 
 # Paso 1: Descargar libro
 mkdir -p "$INPUT_DIR"
+cd "$INPUT_DIR"
 
 # Paso 2: Copiar el archivo completo (sin dividir) al HDFS local
 echo "📂 Preparando archivo para Hadoop..."
