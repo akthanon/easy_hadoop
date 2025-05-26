@@ -66,12 +66,16 @@ chmod +x ~/easy_hadoop/standalone/test_wordcount.sh
 chmod +x ~/easy_hadoop/standalone/run_wordcount.sh
 chmod +x ~/easy_hadoop/standalone/test_bigrams.sh
 chmod +x ~/easy_hadoop/standalone/run_bigrams.sh
+chmod +x ~/easy_hadoop/standalone/test_characters.sh
+chmod +x ~/easy_hadoop/standalone/run_characters.sh
 ~/easy_hadoop/standalone/conf_hadoop.sh
 source ~/.bashrc
 ~/easy_hadoop/standalone/test_wordcount.sh
 ~/easy_hadoop/standalone/run_wordcount.sh
 ~/easy_hadoop/standalone/test_bigrams.sh
 ~/easy_hadoop/standalone/run_bigrams.sh
+~/easy_hadoop/standalone/test_characters.sh
+~/easy_hadoop/standalone/run_characters.sh
 ```
 4. Run setup script Pseudo-Distribuited 🚧🚧🚧
 ```bash
