@@ -1,9 +1,18 @@
+"""
+pip install spacy
+
+python3 -m spacy download en_core_web_sm
+
+"""
+
 # extract_characters.py
 import spacy
 from collections import Counter
 
 # Carga del modelo en inglés
+
 nlp = spacy.load("en_core_web_sm")
+nlp.max_length = 1000000
 
 # Leer el texto
 with open("book.txt", "r", encoding="utf-8") as f:
