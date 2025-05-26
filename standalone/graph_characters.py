@@ -9,7 +9,7 @@ df = pd.read_csv(os.path.expanduser('~/characters.csv'), names=['character', 'co
 df_sorted = df.sort_values(by='count', ascending=False)
 
 plt.figure(figsize=(10, 6))
-plt.bar(df_sorted['personaje'], df_sorted['count'], color='seagreen')
+plt.bar(df_sorted['character'], df_sorted['count'], color='seagreen')
 plt.title("Frecuency Characters'")
 plt.xlabel("Character")
 plt.ylabel("Mention")
