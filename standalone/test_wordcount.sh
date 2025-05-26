@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Configuración
-DATASET_URL="https://www.gutenberg.org/cache/epub/2701/pg2701.txt"
-DATASET_FILE="pg2701.txt"
+DATASET_FILE="book.txt"
 INPUT_DIR=~/input
 HADOOP_JAR=$(ls ~/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar)
 OUTPUT_BASE=~/output_test
@@ -11,13 +10,6 @@ CSV_OUT=~/wordcount_mobydick.csv
 # Paso 1: Descargar libro
 mkdir -p "$INPUT_DIR"
 cd "$INPUT_DIR"
-
-if [ ! -f "$DATASET_FILE" ]; then
-    echo "📥 Descargando 'Moby Dick'..."
-    wget "$DATASET_URL"
-else
-    echo "✅ Libro ya descargado."
-fi
 
 # Paso 2: Copiar el archivo completo (sin dividir) al HDFS local
 echo "📂 Preparando archivo para Hadoop..."

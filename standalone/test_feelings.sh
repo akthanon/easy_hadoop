@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuración
-DATASET_FILE="pg2701.txt"
+DATASET_FILE="book.txt"
 INPUT_DIR=~/input
 CHAPTERS_DIR="$INPUT_DIR/chapters"
 CSV_OUT=~/sentimientos_mobydick.csv

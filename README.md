@@ -65,6 +65,7 @@ chmod +x ~/easy_hadoop/standalone/*
 
 ~/easy_hadoop/standalone/conf_hadoop.sh
 source ~/.bashrc
+~/easy_hadoop/standalone/download_book.sh
 
 # Wordcount
 ~/easy_hadoop/standalone/test_wordcount.sh

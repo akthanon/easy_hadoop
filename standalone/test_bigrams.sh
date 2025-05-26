@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuración
-DATASET_FILE="pg2701.txt"
+DATASET_FILE="book.txt"
 INPUT_DIR=~/input
 HADOOP_JAR=$(ls ~/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar)
 OUTPUT_BASE=~/output_bigrams
