@@ -11,32 +11,20 @@ if [ ! -d "$CHAPTERS_DIR" ]; then
     exit 1
 fi
 
-# Verificar si python3-venv está instalado
-if ! dpkg -s python3-venv &>/dev/null; then
-    echo "Instalando python3-venv..."
-    sudo apt update
-    sudo apt install python3-venv -y
+# Paso 2: Verificar entorno virtual
+if [ ! -d "$VENV_DIR" ]; then
+    echo "❌ Entorno virtual $VENV_DIR no encontrado. Ejecuta primero run_topics.sh"
+    exit 1
 fi
 
-# Crear entorno virtual si no existe
-if [ ! -d "$HOME/venv_hadoop" ]; then
-    echo "Creando entorno virtual..."
-    python3 -m venv "$HOME/venv_hadoop"
-fi
-
-# Activar entorno virtual
-source "$HOME/venv_hadoop/bin/activate"
-
-# Instalar dependencias necesarias
-pip install pandas matplotlib nltk gensim --quiet
+# Paso 3: Activar entorno virtual
+source "$VENV_DIR/bin/activate"
 
 # Paso 4: Verificar gensim
 if ! python3 -c "import gensim" &>/dev/null; then
     echo "📦 Instalando gensim en el entorno virtual..."
     pip install gensim --quiet
 fi
-
-
 
 # Paso 5: Ejecutar análisis de temas
 echo "📚 Analizando temas por capítulo con LDA..."
@@ -68,17 +56,7 @@ for fname in sorted(os.listdir(chapter_dir)):
         top_topic = lda.print_topics(num_words=3)[0][1]
         results.append((fname, top_topic))
 
-# Extraer solo palabras sin pesos y comillas
-clean_topics = []
-for chapter, topic_str in results:
-    # topic_str ejemplo: '0.021*"whale" + 0.007*"whales" + 0.006*"one"'
-    # queremos obtener: whale, whales, one
-    words = [w.split('*')[1].strip('"') for w in topic_str.split(' + ')]
-    clean_topics.append((chapter, ", ".join(words)))
-
-df = pd.DataFrame(clean_topics, columns=["chapter", "topic"])
-df.to_csv(output_csv, index=False)
-
+df = pd.DataFrame(results, columns=["chapter", "topic"])
 df.to_csv(output_csv, index=False)
 EOF
 
