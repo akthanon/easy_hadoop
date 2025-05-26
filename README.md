@@ -68,14 +68,28 @@ chmod +x ~/easy_hadoop/standalone/test_bigrams.sh
 chmod +x ~/easy_hadoop/standalone/run_bigrams.sh
 chmod +x ~/easy_hadoop/standalone/test_characters.sh
 chmod +x ~/easy_hadoop/standalone/run_characters.sh
+chmod +x ~/easy_hadoop/standalone/test_feelings.sh
+chmod +x ~/easy_hadoop/standalone/run_feelings.sh
+chmod +x ~/easy_hadoop/standalone/test_themes.sh
+chmod +x ~/easy_hadoop/standalone/run_themes.sh
+chmod +x ~/easy_hadoop/standalone/*
+
 ~/easy_hadoop/standalone/conf_hadoop.sh
 source ~/.bashrc
 ~/easy_hadoop/standalone/test_wordcount.sh
 ~/easy_hadoop/standalone/run_wordcount.sh
+
 ~/easy_hadoop/standalone/test_bigrams.sh
 ~/easy_hadoop/standalone/run_bigrams.sh
+
 ~/easy_hadoop/standalone/test_characters.sh
 ~/easy_hadoop/standalone/run_characters.sh
+
+~/easy_hadoop/standalone/test_feelings.sh
+~/easy_hadoop/standalone/run_feelings.sh
+
+~/easy_hadoop/standalone/test_themes.sh
+~/easy_hadoop/standalone/run_themes.sh
 ```
 4. Run setup script Pseudo-Distribuited 🚧🚧🚧
 ```bash
