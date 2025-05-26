@@ -11,20 +11,32 @@ if [ ! -d "$CHAPTERS_DIR" ]; then
     exit 1
 fi
 
-# Paso 2: Verificar entorno virtual
-if [ ! -d "$VENV_DIR" ]; then
-    echo "❌ Entorno virtual $VENV_DIR no encontrado. Ejecuta primero run_topics.sh"
-    exit 1
+# Verificar si python3-venv está instalado
+if ! dpkg -s python3-venv &>/dev/null; then
+    echo "Instalando python3-venv..."
+    sudo apt update
+    sudo apt install python3-venv -y
 fi
 
-# Paso 3: Activar entorno virtual
-source "$VENV_DIR/bin/activate"
+# Crear entorno virtual si no existe
+if [ ! -d "$HOME/venv_hadoop" ]; then
+    echo "Creando entorno virtual..."
+    python3 -m venv "$HOME/venv_hadoop"
+fi
+
+# Activar entorno virtual
+source "$HOME/venv_hadoop/bin/activate"
+
+# Instalar dependencias necesarias
+pip install pandas matplotlib nltk gensim --quiet
 
 # Paso 4: Verificar gensim
 if ! python3 -c "import gensim" &>/dev/null; then
     echo "📦 Instalando gensim en el entorno virtual..."
     pip install gensim --quiet
 fi
+
+
 
 # Paso 5: Ejecutar análisis de temas
 echo "📚 Analizando temas por capítulo con LDA..."
