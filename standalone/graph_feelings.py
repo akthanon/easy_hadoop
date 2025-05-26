@@ -6,7 +6,7 @@ import os
 df = pd.read_csv(os.path.expanduser('~/sentimientos_mobydick.csv'))
 
 # Ordenar por capítulo
-df['capitulo'] = df['chapter'].str.extract('(\d+)').astype(int)
+df['capitulo'] = df['chapter'].str.extract(r'(\d+)').astype(int)
 df = df.sort_values(by='capitulo')
 
 # Graficar

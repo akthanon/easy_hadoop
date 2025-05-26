@@ -5,6 +5,7 @@ DATASET_FILE="pg2701.txt"
 INPUT_DIR=~/input
 CHAPTERS_DIR="$INPUT_DIR/chapters"
 CSV_OUT=~/sentimientos_mobydick.csv
+VENV_DIR="$HOME/venv_hadoop"
 
 # Paso 1: Verificar archivo original
 mkdir -p "$INPUT_DIR"
@@ -22,16 +23,25 @@ mkdir -p "$CHAPTERS_DIR"
 
 awk '
 BEGIN { chapter=0 }
-/^CHAPTER [0-9IVXLCDM]+/ {
+/^CHAPTER [0-9IVXLCDM]+/ || /^Chapter [0-9IVXLCDM]+/ {
     chapter++;
     file=sprintf("'"$CHAPTERS_DIR"'/chapter_%03d.txt", chapter);
 }
-{ print >> file }
+{ if (file != "") print >> file }
 ' "$DATASET_FILE"
 
-echo "📝 Se crearon $(ls $CHAPTERS_DIR | wc -l) capítulos."
+CHAPTER_COUNT=$(ls "$CHAPTERS_DIR" | wc -l)
+echo "📝 Se crearon $CHAPTER_COUNT capítulos."
 
-# Paso 3: Generar CSV con análisis de sentimiento
+# Paso 3: Activar entorno virtual
+if [ ! -d "$VENV_DIR" ]; then
+    echo "❌ Entorno virtual $VENV_DIR no encontrado. Ejecuta primero run_sentimientos.sh"
+    exit 1
+fi
+
+source "$VENV_DIR/bin/activate"
+
+# Paso 4: Generar CSV con análisis de sentimiento
 echo "🧠 Analizando sentimiento por capítulo..."
 python3 <<EOF
 from textblob import TextBlob
@@ -43,16 +53,19 @@ output_csv = os.path.expanduser("$CSV_OUT")
 
 data = []
 for fname in sorted(os.listdir(chapters_dir)):
-    with open(os.path.join(chapters_dir, fname)) as f:
+    with open(os.path.join(chapters_dir, fname), encoding='utf-8') as f:
         text = f.read()
         blob = TextBlob(text)
         polarity = blob.sentiment.polarity
         data.append((fname, polarity))
 
-with open(output_csv, "w") as f:
+with open(output_csv, "w", newline='') as f:
     writer = csv.writer(f)
     writer.writerow(["chapter", "polarity"])
     writer.writerows(data)
 EOF
+
+# Paso 5: Desactivar entorno virtual
+deactivate
 
 echo "✅ Sentimientos guardados en: $CSV_OUT"

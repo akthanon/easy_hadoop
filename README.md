@@ -61,35 +61,30 @@ wget https://dlcdn.apache.org/hadoop/common/hadoop-3.4.1/hadoop-3.4.1.tar.gz
 tar -xzvf hadoop-3.4.1.tar.gz
 mv hadoop-3.4.1 ~/hadoop
 
-chmod +x ~/easy_hadoop/standalone/conf_hadoop.sh
-chmod +x ~/easy_hadoop/standalone/test_wordcount.sh
-chmod +x ~/easy_hadoop/standalone/run_wordcount.sh
-chmod +x ~/easy_hadoop/standalone/test_bigrams.sh
-chmod +x ~/easy_hadoop/standalone/run_bigrams.sh
-chmod +x ~/easy_hadoop/standalone/test_characters.sh
-chmod +x ~/easy_hadoop/standalone/run_characters.sh
-chmod +x ~/easy_hadoop/standalone/test_feelings.sh
-chmod +x ~/easy_hadoop/standalone/run_feelings.sh
-chmod +x ~/easy_hadoop/standalone/test_themes.sh
-chmod +x ~/easy_hadoop/standalone/run_themes.sh
 chmod +x ~/easy_hadoop/standalone/*
 
 ~/easy_hadoop/standalone/conf_hadoop.sh
 source ~/.bashrc
+
+# Wordcount
 ~/easy_hadoop/standalone/test_wordcount.sh
 ~/easy_hadoop/standalone/run_wordcount.sh
 
+# Bigrams
 ~/easy_hadoop/standalone/test_bigrams.sh
 ~/easy_hadoop/standalone/run_bigrams.sh
 
+# Characters
 ~/easy_hadoop/standalone/test_characters.sh
 ~/easy_hadoop/standalone/run_characters.sh
 
+# Feelings
 ~/easy_hadoop/standalone/test_feelings.sh
 ~/easy_hadoop/standalone/run_feelings.sh
 
-~/easy_hadoop/standalone/test_themes.sh
-~/easy_hadoop/standalone/run_themes.sh
+# Topics
+~/easy_hadoop/standalone/test_topics.sh
+~/easy_hadoop/standalone/run_topics.sh
 ```
 4. Run setup script Pseudo-Distribuited 🚧🚧🚧
 ```bash
