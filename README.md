@@ -62,12 +62,18 @@ tar -xzvf hadoop-3.4.1.tar.gz
 mv hadoop-3.4.1 ~/hadoop
 
 chmod +x ~/easy_hadoop/standalone/conf_hadoop.sh
-chmod +x ~/easy_hadoop/standalone/test_hadoop_gutenberg.sh
+chmod +x ~/easy_hadoop/standalone/test_wordcount.sh
 chmod +x ~/easy_hadoop/standalone/run_wordcount.sh
+chmod +x ~/easy_hadoop/standalone/test_bigrams.sh
+chmod +x ~/easy_hadoop/standalone/run_bigrams.sh
 ~/easy_hadoop/standalone/conf_hadoop.sh
 source ~/.bashrc
 ~/easy_hadoop/standalone/test_hadoop_gutenberg.sh
 ~/easy_hadoop/standalone/run_wordcount.sh
+~/easy_hadoop/standalone/test_wordcount.sh
+~/easy_hadoop/standalone/run_wordcount.sh
+~/easy_hadoop/standalone/test_bigrams.sh
+~/easy_hadoop/standalone/run_bigrams.sh
 ```
 4. Run setup script Pseudo-Distribuited 🚧🚧🚧
 ```bash
