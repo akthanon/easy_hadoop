@@ -28,6 +28,9 @@ fi
 # Paso 3: Activar entorno virtual
 source "$VENV_DIR/bin/activate"
 
+# Instalar dependencias necesarias
+pip install pandas matplotlib nltk gensim --quiet
+
 # Paso 4: Verificar gensim
 if ! python3 -c "import gensim" &>/dev/null; then
     echo "📦 Instalando gensim en el entorno virtual..."
