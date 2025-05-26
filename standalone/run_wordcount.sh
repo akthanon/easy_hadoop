@@ -59,4 +59,4 @@ fi
 # Desactivar entorno virtual
 deactivate
 
-echo "Proceso completado. Verifica ~/top_palabras_mobydick.png"
+echo "Proceso completado. Verifica ~/top_wordcount.png"

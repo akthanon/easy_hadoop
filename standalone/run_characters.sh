@@ -26,4 +26,4 @@ pip install matplotlib pandas --quiet
 python "$HOME/easy_hadoop/standalone/graph_characters.py" || python "$HOME/graph_characters.py"
 
 deactivate
-echo "✅ Gráfico generado. Verifica ~/personajes_mobydick.png"
+echo "✅ Gráfico generado. Verifica ~/characters.png"

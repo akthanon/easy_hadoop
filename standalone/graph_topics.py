@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import re
 import os
 
-csv_path = os.path.expanduser('~/temas_mobydick.csv')
+csv_path = os.path.expanduser('~/topics.csv')
 df = pd.read_csv(csv_path)
 
 # Extraer palabras y pesos del campo 'topic'
@@ -40,12 +40,12 @@ for word in top_words:
     plt.plot(topic_weights.index, topic_weights[word], marker='o', label=word)
 
 plt.xticks(rotation=90)
-plt.title('Evolución de temas (palabras clave) por capítulo en Moby Dick')
-plt.xlabel('Capítulo')
-plt.ylabel('Peso del tópico LDA')
+plt.title('Evolution per chapter')
+plt.xlabel('Cchapter')
+plt.ylabel('Weight topic LDA')
 plt.legend()
 plt.tight_layout()
 
-output_path = os.path.expanduser('~/temas_mobydick.png')
+output_path = os.path.expanduser('~/topics.png')
 plt.savefig(output_path)
 print(f'✅ Gráfica guardada en {output_path}')

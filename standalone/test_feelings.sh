@@ -4,7 +4,7 @@
 DATASET_FILE="book.txt"
 INPUT_DIR=~/input
 CHAPTERS_DIR="$INPUT_DIR/chapters"
-CSV_OUT=~/sentimientos_mobydick.csv
+CSV_OUT=~/feelings.csv
 VENV_DIR="$HOME/venv_hadoop"
 
 # Paso 1: Verificar archivo original

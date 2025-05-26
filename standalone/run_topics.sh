@@ -34,4 +34,4 @@ else
 fi
 
 deactivate
-echo "✅ Análisis completado. Verifica ~/temas_mobydick.png"
+echo "✅ Análisis completado. Verifica ~/topics.png"

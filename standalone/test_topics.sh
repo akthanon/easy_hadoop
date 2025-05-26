@@ -2,7 +2,7 @@
 
 # Configuración
 CHAPTERS_DIR=~/input/chapters
-CSV_OUT=~/temas_mobydick.csv
+CSV_OUT=~/topics.csv
 VENV_DIR="$HOME/venv_hadoop"
 
 # Paso 1: Verificar capítulos

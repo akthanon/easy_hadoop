@@ -27,4 +27,4 @@ pip install matplotlib pandas --quiet
 python "$HOME/easy_hadoop/standalone/graph_bigrams.py" || python "$HOME/graph_bigrams.py"
 
 deactivate
-echo "✅ Proceso completado. Verifica ~/top_bigrams_mobydick.png"
+echo "✅ Proceso completado. Verifica ~/top_bigram.png"

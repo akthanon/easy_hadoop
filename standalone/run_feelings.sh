@@ -27,4 +27,4 @@ python3 -m textblob.download_corpora
 python "$HOME/easy_hadoop/standalone/graph_feelings.py" || python "$HOME/graph_feelings.py"
 
 deactivate
-echo "✅ Análisis completado. Verifica ~/sentimientos_mobydick.png"
+echo "✅ Análisis completado. Verifica ~/feelings.png"

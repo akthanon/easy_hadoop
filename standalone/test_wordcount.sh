@@ -5,7 +5,7 @@ DATASET_FILE="book.txt"
 INPUT_DIR=~/input
 HADOOP_JAR=$(ls ~/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar)
 OUTPUT_BASE=~/output_test
-CSV_OUT=~/wordcount_mobydick.csv
+CSV_OUT=~/wordcount.csv
 
 # Paso 1: Descargar libro
 mkdir -p "$INPUT_DIR"

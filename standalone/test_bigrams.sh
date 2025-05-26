@@ -5,7 +5,7 @@ DATASET_FILE="book.txt"
 INPUT_DIR=~/input
 HADOOP_JAR=$(ls ~/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-*.jar)
 OUTPUT_BASE=~/output_bigrams
-CSV_OUT=~/bigrams_mobydick.csv
+CSV_OUT=~/bigrams.csv
 
 # Paso 1: Preparar archivo de entrada
 mkdir -p "$INPUT_DIR"
