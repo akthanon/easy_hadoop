@@ -11,15 +11,22 @@ if [ ! -d "$CHAPTERS_DIR" ]; then
     exit 1
 fi
 
-# Paso 2: Activar entorno virtual
+# Paso 2: Verificar entorno virtual
 if [ ! -d "$VENV_DIR" ]; then
     echo "❌ Entorno virtual $VENV_DIR no encontrado. Ejecuta primero run_topics.sh"
     exit 1
 fi
 
+# Paso 3: Activar entorno virtual
 source "$VENV_DIR/bin/activate"
 
-# Paso 3: Ejecutar análisis de temas
+# Paso 4: Verificar gensim
+if ! python3 -c "import gensim" &>/dev/null; then
+    echo "📦 Instalando gensim en el entorno virtual..."
+    pip install gensim --quiet
+fi
+
+# Paso 5: Ejecutar análisis de temas
 echo "📚 Analizando temas por capítulo con LDA..."
 python3 <<EOF
 import os
@@ -49,9 +56,26 @@ for fname in sorted(os.listdir(chapter_dir)):
         top_topic = lda.print_topics(num_words=3)[0][1]
         results.append((fname, top_topic))
 
-df = pd.DataFrame(results, columns=["chapter", "topic"])
+# Extraer solo palabras sin pesos y comillas
+clean_topics = []
+for chapter, topic_str in results:
+    # topic_str ejemplo: '0.021*"whale" + 0.007*"whales" + 0.006*"one"'
+    # queremos obtener: whale, whales, one
+    words = [w.split('*')[1].strip('"') for w in topic_str.split(' + ')]
+    clean_topics.append((chapter, ", ".join(words)))
+
+df = pd.DataFrame(clean_topics, columns=["chapter", "topic"])
+df.to_csv(output_csv, index=False)
+
 df.to_csv(output_csv, index=False)
 EOF
 
 deactivate
+
+# Paso 6: Validar resultado
+if [ ! -s "$CSV_OUT" ]; then
+    echo "❌ Error: El archivo $CSV_OUT no se generó correctamente o está vacío."
+    exit 1
+fi
+
 echo "✅ Resultados guardados en: $CSV_OUT"
