@@ -7,10 +7,10 @@ if ! dpkg -s python3-pip &>/dev/null; then
     sudo apt install python3-pip -y
 fi
 
-if ! dpkg -s python3.12-venv &>/dev/null; then
-    echo "Instalando python3.12-venv..."
+if ! dpkg -s python3-venv &>/dev/null; then
+    echo "Instalando python3-venv..."
     sudo apt update
-    sudo apt install python3.12-venv -y
+    sudo apt install python3-venv -y
 fi
 
 # Crear entorno virtual
@@ -23,7 +23,7 @@ source "$HOME/venv_hadoop/bin/activate"
 pip install matplotlib pandas --quiet
 
 # Ejecutar gráfico
-python "$HOME/easy_hadoop/standalone/graph_personajes.py" || python "$HOME/graph_personajes.py"
+python "$HOME/easy_hadoop/standalone/graph_characters.py" || python "$HOME/graph_characters.py"
 
 deactivate
 echo "✅ Gráfico generado. Verifica ~/personajes_mobydick.png"
