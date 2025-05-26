@@ -26,6 +26,12 @@ nltk.download('punkt')
 nltk.download('stopwords')
 "
 
+# Paso 4: Verificar gensim
+if ! python3 -c "import gensim" &>/dev/null; then
+    echo "📦 Instalando gensim en el entorno virtual..."
+    pip install gensim --quiet
+fi
+
 # Ejecutar script de visualización
 if [ -f "$HOME/easy_hadoop/standalone/graph_topics.py" ]; then
     python "$HOME/easy_hadoop/standalone/graph_topics.py"

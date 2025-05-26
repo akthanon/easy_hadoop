@@ -55,7 +55,7 @@ git clone https://github.com/akthanon/easy_hadoop
 sudo apt install default-jdk -y
 sudo apt-get install ssh -y
 sudo apt-get install pdsh -y
-sudo apt install git -y
+sudo apt install git fzf curl -y
 
 wget https://dlcdn.apache.org/hadoop/common/hadoop-3.4.1/hadoop-3.4.1.tar.gz
 tar -xzvf hadoop-3.4.1.tar.gz

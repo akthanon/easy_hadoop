@@ -36,13 +36,14 @@ import nltk
 nltk.download('punkt')
 nltk.download('stopwords')
 "
-
 # Paso 4: Verificar gensim
 if ! python3 -c "import gensim" &>/dev/null; then
     echo "📦 Instalando gensim en el entorno virtual..."
     pip install gensim --quiet
 fi
 
+deactivate
+source "$VENV_DIR/bin/activate"
 # Paso 5: Ejecutar análisis de temas
 echo "📚 Analizando temas por capítulo con LDA..."
 python3 <<EOF
