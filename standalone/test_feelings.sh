@@ -40,6 +40,8 @@ if [ ! -d "$VENV_DIR" ]; then
 fi
 
 source "$VENV_DIR/bin/activate"
+pip install matplotlib pandas textblob --quiet
+python3 -m textblob.download_corpora
 
 # Paso 4: Generar CSV con análisis de sentimiento
 echo "🧠 Analizando sentimiento por capítulo..."
