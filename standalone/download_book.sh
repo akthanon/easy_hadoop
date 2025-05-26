@@ -9,4 +9,7 @@ else
     echo "✅ Libro ya descargado."
 fi
 
-cp $DATASET_FILE book.txt
+mkdir -p "$INPUT_DIR"
+cd "$INPUT_DIR"
+
+cp $DATASET_FILE $INPUT_DIR/book.txt
