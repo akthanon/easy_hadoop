@@ -68,8 +68,6 @@ chmod +x ~/easy_hadoop/standalone/test_bigrams.sh
 chmod +x ~/easy_hadoop/standalone/run_bigrams.sh
 ~/easy_hadoop/standalone/conf_hadoop.sh
 source ~/.bashrc
-~/easy_hadoop/standalone/test_hadoop_gutenberg.sh
-~/easy_hadoop/standalone/run_wordcount.sh
 ~/easy_hadoop/standalone/test_wordcount.sh
 ~/easy_hadoop/standalone/run_wordcount.sh
 ~/easy_hadoop/standalone/test_bigrams.sh
