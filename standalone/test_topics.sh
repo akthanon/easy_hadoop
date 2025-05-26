@@ -24,18 +24,18 @@ if [ ! -d "$HOME/venv_hadoop" ]; then
     python3 -m venv "$HOME/venv_hadoop"
 fi
 
+# Paso 3: Activar entorno virtual
+source "$VENV_DIR/bin/activate"
+
+# Instalar dependencias necesarias
+pip install pandas matplotlib nltk gensim --quiet
+
 # Descargar recursos de NLTK
 python3 -c "
 import nltk
 nltk.download('punkt')
 nltk.download('stopwords')
 "
-
-# Paso 3: Activar entorno virtual
-source "$VENV_DIR/bin/activate"
-
-# Instalar dependencias necesarias
-pip install pandas matplotlib nltk gensim --quiet
 
 # Paso 4: Verificar gensim
 if ! python3 -c "import gensim" &>/dev/null; then
