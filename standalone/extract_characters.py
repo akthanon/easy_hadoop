@@ -6,7 +6,7 @@ from collections import Counter
 nlp = spacy.load("en_core_web_sm")
 
 # Leer el texto
-with open("mobydick.txt", "r", encoding="utf-8") as f:
+with open("book.txt", "r", encoding="utf-8") as f:
     text = f.read()
 
 # Procesamiento
