@@ -22,10 +22,10 @@ rm -rf "$CHAPTERS_DIR"
 mkdir -p "$CHAPTERS_DIR"
 
 awk '
-BEGIN { chapter=0 }
-/^CHAPTER [0-9IVXLCDM]+/ || /^Chapter [0-9IVXLCDM]+/ {
-    chapter++;
-    file=sprintf("'"$CHAPTERS_DIR"'/chapter_%03d.txt", chapter);
+BEGIN { canto=0 }
+/^(CHAPTER|Chapter|CANTO|Canto|CAPITULO|Cap[ií]tulo) [0-9IVXLCDM]+/ {
+    canto++;
+    file=sprintf("'"$CHAPTERS_DIR"'/chapter_%03d.txt", canto);
 }
 { if (file != "") print >> file }
 ' "$DATASET_FILE"
